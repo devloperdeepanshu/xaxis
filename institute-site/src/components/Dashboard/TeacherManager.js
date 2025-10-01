@@ -13,7 +13,7 @@ function TeacherManager() {
   // Fetch teachers
   const fetchTeachers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/teachers", {
+      const res = await axios.get("https://xaxis-backend.onrender.com/api/teachers", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setList(res.data);
@@ -39,7 +39,7 @@ function TeacherManager() {
       formData.append("experience", form.experience);
       formData.append("photo", photoFile);
 
-      await axios.post("http://localhost:5000/api/teachers", formData, {
+      await axios.post("https://xaxis-backend.onrender.com/api/teachers", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
@@ -60,7 +60,7 @@ function TeacherManager() {
   const handleDelete = async (id) => {
     setLoading(true);
     try {
-      await axios.delete(`http://localhost:5000/api/teachers/${id}`, {
+      await axios.delete(`https://xaxis-backend.onrender.com/api/teachers/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       await fetchTeachers();

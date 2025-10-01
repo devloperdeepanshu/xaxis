@@ -2,7 +2,7 @@ import axios from "axios";
 
 // change baseURL if your backend runs elsewhere
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://xaxis-backend.onrender.com/api",
   headers: {
     "Accept": "application/json",
   },

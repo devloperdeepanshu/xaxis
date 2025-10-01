@@ -10,7 +10,7 @@ function NoticeManager() {
 
   const fetch = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/notices", {
+      const res = await axios.get("https://xaxis-backend.onrender.com/api/notices", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setNotices(res.data);
@@ -29,7 +29,7 @@ function NoticeManager() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/notices",
+        "https://xaxis-backend.onrender.com/api/notices",
         { title, content },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -43,7 +43,7 @@ function NoticeManager() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/notices/${id}`, {
+      await axios.delete(`https://xaxis-backend.onrender.com/api/notices/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetch();
