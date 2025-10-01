@@ -1,106 +1,119 @@
 // src/components/Hero.js
 import React from "react";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { motion } from "framer-motion";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
+  const navigate = useNavigate();
+
   const slides = [
     {
-      img: "https://picsum.photos/1600/600?1",
+      img: "https://picsum.photos/1600/700?1",
       title: "X-Axis Maths Institute",
       desc: "Transforming students into JEE & Board toppers.",
       btn: "Enroll Now",
+      link: "/contact",
     },
     {
-      img: "https://picsum.photos/1600/600?1",
+      img: "https://picsum.photos/id/237/1600/700",
       title: "Expert Guidance for JEE & Boards",
       desc: "Specialized courses for 10th, 11th, 12th & JEE Aspirants.",
       btn: "Join Classes",
+      link: "/courses",
     },
     {
-      img: "https://picsum.photos/1600/600?2",
+      img: "https://picsum.photos/seed/picsum/1600/700",
       title: "Strong Foundation in Mathematics",
       desc: "Building concepts with clarity and confidence.",
       btn: "Get Started",
+      link: "/contact",
     },
   ];
 
-  const customArrow = (onClickHandler, label, isLeft) => (
-    <button
-      type="button"
-      onClick={onClickHandler}
-      title={label}
-      className={`absolute top-1/2 transform -translate-y-1/2 ${
-        isLeft ? "left-3" : "right-3"
-      } bg-yellow-400 text-blue-900 p-2 rounded-full shadow-lg hover:bg-yellow-300 transition`}
-    >
-      {isLeft ? <FaChevronLeft size={20} /> : <FaChevronRight size={20} />}
-    </button>
-  );
-
   return (
     <div className="w-full flex justify-center py-6">
-      <div className="w-[90%] md:w-[70%] rounded-xl overflow-hidden shadow-2xl relative">
-        <Carousel
-          autoPlay
-          infiniteLoop
-          interval={30000} // 30 seconds
-          showStatus={false}
-          showThumbs={false}
-          renderArrowPrev={(onClickHandler, hasPrev, label) =>
-            hasPrev && customArrow(onClickHandler, label, true)
-          }
-          renderArrowNext={(onClickHandler, hasNext, label) =>
-            hasNext && customArrow(onClickHandler, label, false)
-          }
+      <div className="w-[95%] md:w-[80%] rounded-xl overflow-hidden shadow-2xl relative">
+        <Swiper
+          modules={[Autoplay, Navigation, Pagination]}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          loop={true}
+          pagination={{ clickable: true }}
+          navigation={true}
+          slidesPerView={1}
+          className="rounded-xl"
         >
           {slides.map((slide, i) => (
-            <motion.div
-              key={i}
-              className="relative h-[25vh] md:h-[35vh] group"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-            >
-              {/* Background Image */}
-              <img
-                src={slide.img}
-                alt={slide.title}
-                className="w-full h-full object-cover rounded-xl"
-              />
+           <SwiperSlide key={i}>
+  <motion.div
+    className="relative h-[50vh] md:h-[60vh] lg:h-[70vh]" // 🔹 height is bigger on small screens
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1 }}
+  >
+    {/* Background Image */}
+    <img
+      src={slide.img}
+      alt={slide.title}
+      className="w-full h-full object-cover rounded-xl"
+      loading="lazy"
+    />
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
-                <motion.h1
-                  className="text-xl md:text-3xl font-bold text-yellow-400 mb-2 drop-shadow-lg"
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 1 }}
-                >
-                  {slide.title}
-                </motion.h1>
-                <motion.p
-                  className="text-sm md:text-lg text-white mb-3 max-w-xl"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5, duration: 1 }}
-                >
-                  {slide.desc}
-                </motion.p>
-                <motion.button
-                  className="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-lg shadow-lg hover:scale-110 hover:bg-yellow-300 transition text-sm md:text-base"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 1, duration: 0.5 }}
-                >
-                  {slide.btn}
-                </motion.button>
-              </div>
-            </motion.div>
+    {/* Overlay */}
+<div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
+  <motion.div
+    initial="hidden"
+    animate="visible"
+    variants={{
+      hidden: {},
+      visible: { transition: { staggerChildren: 0.3 } },
+    }}
+  >
+    {/* Title */}
+    <motion.h1
+      className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-yellow-400 mb-3 drop-shadow-lg"
+      variants={{
+        hidden: { y: -30, opacity: 0 },
+        visible: { y: 0, opacity: 1, transition: { duration: 0.8 } },
+      }}
+    >
+      {slide.title}
+    </motion.h1>
+
+    {/* Description */}
+    <motion.p
+      className="text-sm sm:text-base md:text-lg lg:text-xl text-white mb-4 max-w-xs sm:max-w-md md:max-w-xl"
+      variants={{
+        hidden: { y: -20, opacity: 0 },
+        visible: { y: 0, opacity: 1, transition: { duration: 0.8 } },
+      }}
+    >
+      {slide.desc}
+    </motion.p>
+
+    {/* Button */}
+    <motion.button
+      onClick={() => navigate(slide.link)}
+      className="bg-yellow-400 text-blue-900 font-bold px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-3 rounded-lg shadow-lg hover:scale-105 hover:bg-yellow-300 transition text-sm sm:text-base md:text-lg"
+      variants={{
+        hidden: { scale: 0.9, opacity: 0 },
+        visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } },
+      }}
+    >
+      {slide.btn}
+    </motion.button>
+  </motion.div>
+</div>
+
+  </motion.div>
+</SwiperSlide>
+
           ))}
-        </Carousel>
+        </Swiper>
       </div>
     </div>
   );

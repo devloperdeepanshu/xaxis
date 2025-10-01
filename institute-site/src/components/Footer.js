@@ -6,22 +6,35 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/f
 function Footer() {
   return (
     <motion.footer
-      className="bg-blue-800 text-white py-10" // lighter blue
+      className="bg-blue-800 text-white py-10 mt-auto" // mt-auto keeps it pushed to bottom
       initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
     >
       <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-start md:items-center">
         {/* Branding */}
-        <div className="mb-6 md:mb-0">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2, duration: 0.7 }}
+          viewport={{ once: true }}
+          className="mb-6 md:mb-0"
+        >
           <h1 className="text-2xl font-bold text-yellow-400 mb-2">X-Axis Institute</h1>
           <p className="text-gray-200 max-w-xs">
             Excellence in Mathematics for JEE & Board students. Building confidence and mastery in every student.
           </p>
-        </div>
+        </motion.div>
 
         {/* Links */}
-        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-12 mb-6 md:mb-0">
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-12 mb-6 md:mb-0"
+        >
           <div>
             <h2 className="font-semibold text-yellow-400 mb-2">Quick Links</h2>
             <ul className="space-y-1">
@@ -42,13 +55,19 @@ function Footer() {
               <a href="#" className="hover:text-yellow-300 transition"><FaTwitter /></a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-blue-700 mt-8 pt-4 text-center text-gray-300 text-sm">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+        viewport={{ once: true }}
+        className="border-t border-blue-700 mt-8 pt-4 text-center text-gray-300 text-sm"
+      >
         &copy; {new Date().getFullYear()} X-Axis Institute. All Rights Reserved.
-      </div>
+      </motion.div>
     </motion.footer>
   );
 }

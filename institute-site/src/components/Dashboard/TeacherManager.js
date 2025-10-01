@@ -8,6 +8,7 @@ function TeacherManager() {
   const [photoFile, setPhotoFile] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const [deleteId, setDeleteId] = useState(null); // track teacher to delete
   const token = localStorage.getItem("token");
 
   // Fetch teachers
@@ -56,14 +57,16 @@ function TeacherManager() {
     }
   };
 
-  // Delete teacher
-  const handleDelete = async (id) => {
+  // Confirm delete
+  const confirmDelete = async () => {
+    if (!deleteId) return;
     setLoading(true);
     try {
-      await axios.delete(`https://xaxis-backend.onrender.com/api/teachers/${id}`, {
+      await axios.delete(`https://xaxis-backend.onrender.com/api/teachers/${deleteId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       await fetchTeachers();
+      setDeleteId(null); // close modal
     } catch (err) {
       console.error("Error deleting teacher:", err);
     } finally {
@@ -133,7 +136,7 @@ function TeacherManager() {
               <div className="text-xs text-gray-500">{t.experience} yrs</div>
             </div>
             <button
-              onClick={() => handleDelete(t._id)}
+              onClick={() => setDeleteId(t._id)}
               className="text-red-600 mt-2 sm:mt-0"
               disabled={loading}
             >
@@ -142,6 +145,37 @@ function TeacherManager() {
           </motion.div>
         ))}
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {deleteId && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="bg-white p-6 rounded-lg shadow-lg w-96 text-center"
+          >
+            <h3 className="text-lg font-semibold mb-4">Confirm Delete</h3>
+            <p className="text-gray-600 mb-6">
+              Are you sure you want to delete this teacher? This action cannot be undone.
+            </p>
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={confirmDelete}
+                className="bg-red-600 text-white px-4 py-2 rounded"
+                disabled={loading}
+              >
+                {loading ? "Deleting..." : "Yes, Delete"}
+              </button>
+              <button
+                onClick={() => setDeleteId(null)}
+                className="bg-gray-300 px-4 py-2 rounded"
+              >
+                Cancel
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 }

@@ -64,25 +64,56 @@ function Navbar() {
       </div>
 
       {/* Mobile Menu Items */}
-      {isOpen && (
-        <div className="md:hidden bg-blue-900 px-6 py-4 space-y-3 text-lg font-medium">
-          <Link to="/" className="block hover:text-yellow-400 transition">Home</Link>
-          <Link to="/teachers" className="block hover:text-yellow-400 transition">Teachers</Link>
-          <Link to="/notice" className="block hover:text-yellow-400 transition">Notice Board</Link>
-          <Link to="/about" className="hover:text-yellow-400 transition">About</Link>
-          <Link to="/contact" className="hover:text-yellow-400 transition">Contact us</Link>    
-          {user && user.role && (
-            <Link to="/dashboard" className="block hover:text-yellow-400 transition">
-              {user.role === "admin" ? "Admin Dashboard" : "Teacher Dashboard"}
-            </Link>
-          )}
-          {!user ? (
-            <Link to="/login" className="block hover:text-yellow-400 transition">Login</Link>
-          ) : (
-            <button onClick={handleLogout} className="block hover:text-yellow-400 transition">Logout</button>
-          )}
-        </div>
-      )}
+   {/* Mobile Menu Items */}
+{isOpen && (
+  <div className="md:hidden bg-blue-900 px-6 py-4 space-y-3 text-lg font-medium">
+    {["/", "/teachers", "/notice", "/about", "/contact"].map((path, idx) => {
+      const name = ["Home", "Teachers", "Notice Board", "About", "Contact us"][idx];
+      return (
+        <Link
+          key={path}
+          to={path}
+          className="block hover:text-yellow-400 transition"
+          onClick={() => setIsOpen(false)}
+        >
+          {name}
+        </Link>
+      );
+    })}
+
+    {user && user.role && (
+      <Link
+        to="/dashboard"
+        className="block hover:text-yellow-400 transition"
+        onClick={() => setIsOpen(false)}
+      >
+        {user.role === "admin" ? "Admin Dashboard" : "Teacher Dashboard"}
+      </Link>
+    )}
+
+    {user ? (
+      <button
+        onClick={() => {
+          handleLogout();
+          setIsOpen(false);
+        }}
+        className="block hover:text-yellow-400 transition w-full text-left"
+      >
+        Logout
+      </button>
+    ) : (
+      <Link
+        to="/login"
+        className="block hover:text-yellow-400 transition"
+        onClick={() => setIsOpen(false)}
+      >
+        Login
+      </Link>
+    )}
+  </div>
+)}
+
+
     </nav>
   );
 }
