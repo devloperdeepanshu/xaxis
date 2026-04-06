@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 function Courses() {
   const courses = [
     { name: "JEE Main & Advanced", desc: "Focused preparation with advanced problem solving." },
-    { name: "Class 12th Mathematics", desc: "CBSE board exam oriented curriculum." },
-    { name: "Class 11th Mathematics", desc: "Strong foundation building for higher classes." },
-    { name: "Class 10th Mathematics", desc: "Foundation for boards and competitive exams." },
+    { name: "Class 12th Chemestry", desc: "CBSE board exam oriented curriculum." },
+    { name: "Class 11th Chemestry", desc: "Strong foundation building for higher classes." },
+    { name: "Class 10th Chemestry", desc: "Foundation for boards and competitive exams." },
   ];
 
   return (

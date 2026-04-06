@@ -14,21 +14,21 @@ function Hero() {
   const slides = [
     {
       img: "https://picsum.photos/1600/700?1",
-      title: "X-Axis Maths Institute",
-      desc: "Transforming students into JEE & Board toppers.",
+      title: "arjun classes Institute",
+      desc: "Transforming students into JEE,NEET & Board toppers.",
       btn: "Enroll Now",
       link: "/contact",
     },
     {
       img: "https://picsum.photos/id/237/1600/700",
-      title: "Expert Guidance for JEE & Boards",
+      title: "Expert Guidance for JEE,NEET & Boards",
       desc: "Specialized courses for 10th, 11th, 12th & JEE Aspirants.",
       btn: "Join Classes",
       link: "/courses",
     },
     {
       img: "https://picsum.photos/seed/picsum/1600/700",
-      title: "Strong Foundation in Mathematics",
+      title: "Strong Foundation in Chemistry",
       desc: "Building concepts with clarity and confidence.",
       btn: "Get Started",
       link: "/contact",

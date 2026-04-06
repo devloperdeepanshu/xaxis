@@ -23,7 +23,7 @@ function Navbar() {
     <nav className="bg-blue-900 text-white shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold hover:text-yellow-400 cursor-pointer">
-          <Link to="/">X-Axis Institute</Link>
+          <Link to="/">Arjun classes</Link>
         </h1>
 
         <ul className="hidden md:flex space-x-6 text-lg font-medium">

@@ -22,8 +22,8 @@ function LoadingScreen() {
         className="w-64 h-64 object-contain rounded-lg shadow-xl"
       />
 
-      <h1 className="text-3xl text-yellow-400 font-bold mt-4">X-Axis Institute</h1>
-      <p className="text-white/80 mt-1">Excellence in Mathematics</p>
+      <h1 className="text-3xl text-yellow-400 font-bold mt-4">Arjun classes Institute</h1>
+      <p className="text-white/80 mt-1">Excellence in Chemestry</p>
     </div>
   );
 }

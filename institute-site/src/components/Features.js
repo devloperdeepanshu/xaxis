@@ -6,7 +6,7 @@ import { FaGraduationCap, FaChalkboardTeacher, FaLaptop } from "react-icons/fa";
 function Features() {
   const features = [
     { icon: <FaGraduationCap />, title: "Top Results", desc: "Our students consistently top exams with exceptional results." },
-    { icon: <FaChalkboardTeacher />, title: "Expert Teachers", desc: "Highly qualified teachers with years of experience in JEE and board exams." },
+    { icon: <FaChalkboardTeacher />, title: "Expert Teachers", desc: "Highly qualified teacher with years of experience in JEE and board exams." },
     { icon: <FaLaptop />, title: "Online & Offline", desc: "Flexible learning modes including classroom and online sessions." },
   ];
 

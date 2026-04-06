@@ -24,7 +24,7 @@ function Contact() {
       >
         <h1 className="text-4xl md:text-5xl font-bold text-center text-blue-900 mb-8">Contact Us</h1>
         <p className="text-gray-700 text-center mb-12">
-          Have questions or want to join X-Axis Maths Institute? Send us a message and we’ll get back to you.
+          Have questions or want to join Arjun classes Institute? Send us a message and we’ll get back to you.
         </p>
         <form
           className="bg-gray-50 p-8 rounded-xl shadow-lg space-y-6"

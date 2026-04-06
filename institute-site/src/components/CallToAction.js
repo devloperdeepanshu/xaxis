@@ -10,7 +10,7 @@ function CallToAction() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Ready to Join X-Axis Maths Institute?
+        Ready to Join Arjun classes Institute?
       </motion.h2>
       <motion.p
         className="text-lg md:text-xl mb-8"

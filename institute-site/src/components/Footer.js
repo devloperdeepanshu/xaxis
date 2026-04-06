@@ -21,9 +21,9 @@ function Footer() {
           viewport={{ once: true }}
           className="mb-6 md:mb-0"
         >
-          <h1 className="text-2xl font-bold text-yellow-400 mb-2">X-Axis Institute</h1>
+          <h1 className="text-2xl font-bold text-yellow-400 mb-2">Arjun claases Institute</h1>
           <p className="text-gray-200 max-w-xs">
-            Excellence in Mathematics for JEE & Board students. Building confidence and mastery in every student.
+            Excellence in Chemestry for JEE & Board students. Building confidence and mastery in every student.
           </p>
         </motion.div>
 
@@ -66,7 +66,7 @@ function Footer() {
         viewport={{ once: true }}
         className="border-t border-blue-700 mt-8 pt-4 text-center text-gray-300 text-sm"
       >
-        &copy; {new Date().getFullYear()} X-Axis Institute. All Rights Reserved.
+        &copy; {new Date().getFullYear()} Arjun classes Institute. All Rights Reserved.
       </motion.div>
     </motion.footer>
   );

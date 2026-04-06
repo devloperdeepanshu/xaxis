@@ -24,24 +24,33 @@ function App() {
   if (loading) return <LoadingScreen />;
 
   return (
-    <Router>
+  <Router>
+    <div className="flex flex-col min-h-screen">
+      
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/teachers" element={<Teachers />} />
-        <Route path="/notice" element={<NoticeBoard />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        {!role && <Route path="/login" element={<Login onLogin={setRole} />} />}
-        {role && <Route path="/dashboard" element={<Dashboard role={role} />} />}
-        <Route
-          path="*"
-          element={role ? <Navigate to="/dashboard" /> : <Navigate to="/login" />}
-        />
-      </Routes>
+
+      {/* Main Content */}
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/teachers" element={<Teachers />} />
+          <Route path="/notice" element={<NoticeBoard />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          {!role && <Route path="/login" element={<Login onLogin={setRole} />} />}
+          {role && <Route path="/dashboard" element={<Dashboard role={role} />} />}
+          <Route
+            path="*"
+            element={role ? <Navigate to="/dashboard" /> : <Navigate to="/login" />}
+          />
+        </Routes>
+      </main>
+
       <Footer />
-    </Router>
-  );
+      
+    </div>
+  </Router>
+);
 }
 
 export default App;
