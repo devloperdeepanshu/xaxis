@@ -1,9 +1,16 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  role: { type: String, enum: ["admin", "teacher"], default: "teacher" },
-});
+const teacherSchema = new mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+  },
 
-module.exports = mongoose.model("User", userSchema);
+  subject: { type: String, required: true },
+  experience: { type: Number, required: true },
+  photo: { type: String },
+
+}, { timestamps: true });
+
+module.exports = mongoose.model("Teacher", teacherSchema);

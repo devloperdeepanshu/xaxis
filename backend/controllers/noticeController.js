@@ -6,14 +6,39 @@ const getNotices = async (req, res) => {
 };
 
 const addNotice = async (req, res) => {
-  const notice = new Notice(req.body);
-  await notice.save();
-  res.json(notice);
+  try {
+    // Assume you send role from frontend (not secure but ok for now)
+    if (req.body.role !== "admin") {
+      return res.status(403).json({ message: "Only admin can add notice" });
+    }
+
+    const notice = new Notice({
+      title: req.body.title,
+      content: req.body.content,
+    });
+
+    await notice.save();
+
+    res.json(notice);
+
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
 };
 
 const deleteNotice = async (req, res) => {
-  await Notice.findByIdAndDelete(req.params.id);
-  res.json({ message: "Deleted" });
+  try {
+    if (req.body.role !== "admin") {
+      return res.status(403).json({ message: "Only admin can delete" });
+    }
+
+    await Notice.findByIdAndDelete(req.params.id);
+
+    res.json({ message: "Deleted" });
+
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
 };
 
 module.exports = { getNotices, addNotice, deleteNotice };
