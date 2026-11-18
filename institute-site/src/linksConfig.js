@@ -20,7 +20,7 @@ export const THREE_BUTTONS = [
     title: "Write a Google Review",
     subtitle: "Help us grow! Rate your experience with 5 stars ⭐",
     // 👇 APNA GOOGLE REVIEW LINK YAHA PASTE KAREIN:
-    url: "https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4",
+    url: "https://search.google.com/local/writereview?placeid=ChIJ8crfsjEzEjkRXK3A06_6uHw",
     badge: "⭐️ 5.0 Rating",
     actionLabel: "Rate Us"
   },
