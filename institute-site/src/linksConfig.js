@@ -37,15 +37,5 @@ export const THREE_BUTTONS = [
     actionLabel: "Follow"
   },
 
-  // 3️⃣ WHATSAPP BUTTON
-  {
-    id: "whatsapp",
-    type: "whatsapp",
-    title: "Chat on WhatsApp",
-    subtitle: "Fast response • Direct queries & consultation",
-    // 👇 APNA WHATSAPP LINK YAHA PASTE KAREIN (Format: https://wa.me/91XXXXXXXXXX?text=Hi):
-    url: "https://www.instagram.com/dosajunctionhisar?bqrl=MXYxN2c4aW1lYXd1Zg==",
-    badge: "💬 Online",
-    actionLabel: "Chat"
-  }
+
 ];
