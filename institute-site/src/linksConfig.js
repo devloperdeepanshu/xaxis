@@ -4,12 +4,12 @@
 // ========================================================
 
 export const PROFILE = {
-  name: "XAxis Official",
+  name: "dosa junction",
   bio: "Welcome! Connect with us, explore updates, or leave a review below 👇",
   // Apni photo / logo ka URL yahan dalein ya local file use karein:
   avatar: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80",
   verified: true,
-  location: "New Delhi, India"
+  location: "Hisar Haryana"
 };
 
 export const THREE_BUTTONS = [
@@ -30,9 +30,9 @@ export const THREE_BUTTONS = [
     id: "instagram",
     type: "instagram",
     title: "Follow on Instagram",
-    subtitle: "@xaxis.official • Daily updates, reels & insights",
+    subtitle: "@dosa.junction • Daily updates, reels & insights",
     // 👇 APNA INSTAGRAM PROFILE LINK YAHA PASTE KAREIN:
-    url: "https://www.instagram.com/dosajunctionhisar/",
+    url: "https://instagram.com/xaxis.official",
     badge: "📸 Connect",
     actionLabel: "Follow"
   },
@@ -44,7 +44,7 @@ export const THREE_BUTTONS = [
     title: "Chat on WhatsApp",
     subtitle: "Fast response • Direct queries & consultation",
     // 👇 APNA WHATSAPP LINK YAHA PASTE KAREIN (Format: https://wa.me/91XXXXXXXXXX?text=Hi):
-    url: "https://wa.me/919876543210?text=Hello!%20I%20would%20like%20to%20know%20more",
+    url: "https://www.instagram.com/dosajunctionhisar?bqrl=MXYxN2c4aW1lYXd1Zg==",
     badge: "💬 Online",
     actionLabel: "Chat"
   }
