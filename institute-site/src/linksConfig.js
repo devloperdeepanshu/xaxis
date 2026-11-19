@@ -32,7 +32,7 @@ export const THREE_BUTTONS = [
     title: "Follow on Instagram",
     subtitle: "@dosa.junction • Daily updates, reels & insights",
     // 👇 APNA INSTAGRAM PROFILE LINK YAHA PASTE KAREIN:
-    url: "https://instagram.com/xaxis.official",
+    url: "https://www.instagram.com/dosajunctionhisar?bqrl=MXYxN2c4aW1lYXd1Zg==,
     badge: "📸 Connect",
     actionLabel: "Follow"
   },
